@@ -1,6 +1,7 @@
 # 함수(Function)
 
 ## 즉시실행함수(IIFE - Immediately-invoked function expression)
+
 함수를 정의함과 동시에 바로 실행하는 함수를 즉시 실행 함수라고 한다.
 
 ```js
@@ -18,12 +19,14 @@
 ## 인자, 매개변수
 
 ### 매개변수(Parameters)
+
 함수 외부의 값(인자 or 인수)을 받아 함수 내부에 값(데이터)을 넘겨 주는 중간 역할(매개체)을 하는 변수를
 매개변수(파라미터)라고 한다.
 소괄호() 안에 작성, 콤마로 구분하여 다수의 파라미터를 작성할 수 있다.
 
 
 ### 인자(Arguments)
+
 인자(argument)는 함수 내부로 유입되는 입력 값을 의미하는데, 어떤 값을 인자로 전달하느냐에 따라서
 함수가 반환하는 값이나 메소드의 동작방법을 다르게 할 수 있다.
 
@@ -34,7 +37,6 @@ function testParameter(a, b ,c) {
 }
 
 testParameter(1, 2, 3); // 6
-
 ```
 
 ### arguments 객체(Arguments Object)
@@ -44,13 +46,10 @@ testParameter(1, 2, 3); // 6
 사용할 수 있는데 이러한 인자의 정보를 관리하는 것이 arguments 객체이다.
 
 ```js
-
 function argTest (a, b) {
   console.dir(arguments);
     return a + b;
 }
-
-
 
 //Arguments(3)
 //0 : 1
@@ -63,13 +62,13 @@ function argTest (a, b) {
 
 argTest(1, 2); // 3
 argTest(1, 2, 3); // 3
-
 ```
 arguments 객체는 배열과 비슷한 구조체에 저장되지만 배열은 아니다.
 저장된 인자는 숫자 인덱스로 접근할 수 있으며 length 속성을 사용하면 저장된 인수의 개수를 알 수 있다.
 
 
 ## 유효범위(Scope)
+
 유효범위는 변수의 사용이 유효한(가능한) 범위.
 변수는 지역(local), 전역(Global)로 나눌 수 있다.
 
@@ -95,11 +94,13 @@ func 안에서 지역변수 value를 호출. 이떄는 자신의 영역 (local s
 자바스크립트는 기본적으로 외부에서 내부에 접근할 수 없음. 내부에서는 외부로의 접근이 가능.
 떄문에 밖에서 console.log(value) 실행하면 func안에 value는 볼 수 없어 자신의 영역 (global)의 value를 찍은 것.
 
+
 ## 렉시컬(Lexical)
+
 소스코드가 작성되는 시점에 유효범위가 결정되는 것을 렉시컬이라 표현.
 
 ```js
- var name = 'abc'; // 전역에 abc 변수 선언
+var name = 'abc'; // 전역에 abc 변수 선언
 
 function print(){
   console.log(name);
@@ -119,6 +120,7 @@ print()가 실행되면 자신의 로컬 영역에서 name을 한번 찾을테�
 
 
 ## 호이스팅(Hoisting)
+
 함수 선언이 소스코드에서 해당 함수를 실행하는 부분보다 뒤에 있다 하더라도 함수 선언을 '끌어올리는 것(hoist)'이다.
 함수 호이스팅이 발생하는 원인은 자바스크립트 변수 생성과 초기화(선언과 할당)가 분리되어 진행되기 때문.
 
@@ -128,16 +130,14 @@ print()가 실행되면 자신의 로컬 영역에서 name을 한번 찾을테�
 함수 표현식은 변수를 통해서만 함수를 참조하기 때문에 호이스팅 되지 않는다.
 
 
-
 ### 함수 표현식에서의 함수 호이스팅
 ```js
 console.log(sum(10, 10));   // uncaught type error!
 
-    var sum = function (num1, num2) { return num1 + num2;
+var sum = function (num1, num2) { return num1 + num2;
 }
 console.log(sum(10, 10));   // 20
 ```
-
 
 ### 함수 선언문에서의 함수 호이스팅
 ```js
@@ -157,42 +157,40 @@ function sum(num1, num2) {
 주로 특정 이벤트가 발생했거나 특정 시점에 도달했을때 호출되어 자주 사용된다.
 
 
-
 ### 이벤트 리스너로 사용
 
 ```js
- $("#btnStart").click(function(){
+$("#btnStart").click(function(){
        alert("클릭되었습니다.");
-     });
+});
 ```
 
 ### 타이머 실행 함수로 사용
 
 ```js
- setInterval(function(){
+setInterval(function(){
    alert("1초마다 한 번씩 실행되요");
- }, 1000);
+}, 1000);
 ```
 
 ### Ajax 결과값을 받을 때 사용
 
 ```js
- $.get("http://luxlab.co.kr/", function(){
+$.get("http://luxlab.co.kr/", function(){
        alter("정상적으로 서버 통신이 이뤄졌습니다.");
-     });
+});
 ```
 
 ### jQuery 애니메이션 완료
 
 ```js
- $("#target").animate ({
+$("#target").animate ({
        left:100,
        opacity:1
-     },2000,"easeoutQuint", function(){
+},2000,"easeoutQuint", function(){
        alert("애니메이션이 완료되었습니다.");
      });
 ```
-
 
 
 ## 클로저
