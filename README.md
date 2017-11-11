@@ -158,7 +158,7 @@ function sum(num1, num2) {
 
 
 
-### 이벤트 리스터로 사용
+### 이벤트 리스너로 사용
 
 ```js
  $("#btnStart").click(function(){
@@ -171,7 +171,7 @@ function sum(num1, num2) {
 ```js
  setInterval(function(){
    alert("1초마다 한 번씩 실행되요");
- });
+ }, 1000);
 ```
 
 ### Ajax 결과값을 받을 때 사용
@@ -209,15 +209,13 @@ function aaa(){
     var b = 2000;
     console.log(a);
     console.log(b);
-}
+	}
    bbb();
 }
  aaa();
- bbb();
 
 // 100
 // 2000
-// Uncaught ReferenceError: bbb is not defined
 ```
 
 ```js
